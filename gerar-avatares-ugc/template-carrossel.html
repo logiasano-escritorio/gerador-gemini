@@ -1,0 +1,111 @@
+<!--
+  Template: Carrossel Infinito de Depoimentos UGC — Sano
+  Substitua as variáveis: {{HEADER}}, {{SUBHEADER}}, {{IMG_DIR}}, {{IMGS}}
+-->
+
+<section class="ugc-carousel">
+  <div class="ugc-carousel__header">
+    <div class="ugc-carousel__stars">★★★★★</div>
+    <h2 class="ugc-carousel__title">{{HEADER}}</h2>
+    <p class="ugc-carousel__subtitle">{{SUBHEADER}}</p>
+  </div>
+
+  <div class="ugc-carousel__track-container">
+    <div class="ugc-carousel__track">
+      <!-- {{IMGS}} renderiza 2 cópias da lista de imagens (loop seamless) -->
+      {{IMGS}}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ugc-carousel {
+    background: #eaf2f8;
+    padding: 48px 0 56px;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .ugc-carousel__header {
+    text-align: center;
+    padding: 0 24px;
+    margin-bottom: 32px;
+  }
+
+  .ugc-carousel__stars {
+    color: #f5b400;
+    font-size: 22px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+  }
+
+  .ugc-carousel__title {
+    color: #1e3a8a;
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 8px;
+    line-height: 1.2;
+  }
+
+  .ugc-carousel__title strong {
+    color: #d4af37;
+    font-weight: 800;
+  }
+
+  .ugc-carousel__subtitle {
+    color: #4b5563;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .ugc-carousel__track-container {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent);
+  }
+
+  .ugc-carousel__track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: ugc-scroll 60s linear infinite;
+  }
+
+  .ugc-carousel__track:hover {
+    animation-play-state: paused;
+  }
+
+  .ugc-carousel__item {
+    flex: 0 0 auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .ugc-carousel__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @keyframes ugc-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 768px) {
+    .ugc-carousel { padding: 36px 0 40px; }
+    .ugc-carousel__title { font-size: 22px; }
+    .ugc-carousel__subtitle { font-size: 13px; }
+    .ugc-carousel__item { width: 130px; height: 130px; }
+    .ugc-carousel__track { gap: 12px; animation-duration: 45s; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ugc-carousel__track { animation-duration: 120s; }
+  }
+</style>

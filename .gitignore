@@ -1,0 +1,18 @@
+# segredos — nunca commitar
+.env
+.env.*
+!.env.example
+
+# saidas de geracao
+images/
+avatares/
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+# sistema
+.DS_Store
+node_modules/
+__pycache__/
+*.pyc
